@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alertas | OdinControl</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container-custom {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+        }
+        .btn-submit {
+            display: block;
+            width: 200px;
+            margin: 20px auto 0;
+        }
+        .table-custom {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-custom">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="bi bi-bell"></i> Alertas de Preço</h2>
+            <div>
+                <a href="menu.html" class="btn btn-secondary me-2">Voltar</a>
+                <span id="username" class="fw-bold"></span>
+            </div>
+        </div>
+
+        <!-- Formulário -->
+        <div class="card-custom">
+            <h4 class="mb-4"><i class="bi bi-plus-circle"></i> Novo Alerta</h4>
+            <form id="form-alerta">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">ID do Produto</label>
+                        <input type="number" class="form-control" id="produto-id" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Valor Alvo (R$)</label>
+                        <input type="number" step="0.01" class="form-control" id="valor-desejado" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ação</label>
+                    <select class="form-select" id="acao" required>
+                        <option value="notificar">Notificar</option>
+                        <option value="comprar">Comprar Automaticamente</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Cadastrar Alerta</button>
+            </form>
+        </div>
+
+        <!-- Lista de Produtos -->
+        <div class="card-custom">
+            <h4 class="mb-4"><i class="bi bi-box-seam"></i> Seus Produtos</h4>
+            <div class="table-responsive">
+                <table class="table table-custom">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>ID</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-produtos">
+                        <!-- JavaScript preencherá aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Alertas Ativos -->
+        <div class="card-custom">
+            <h4 class="mb-4"><i class="bi bi-list-check"></i> Alertas Ativos</h4>
+            <div class="table-responsive">
+                <table class="table table-custom">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Valor Alvo</th>
+                            <th>Ação</th>
+                            <th>Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-alertas">
+                        <!-- JavaScript preencherá aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/alerta.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+            if (usuario?.nome) {
+                document.getElementById('username').textContent = usuario.nome;
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

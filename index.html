@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | OdinControl</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .login-header h1 {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .form-control {
+            border-radius: 5px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+        }
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            border: none;
+            font-weight: 500;
+        }
+        .btn-login:hover {
+            background-color: #2980b9;
+        }
+        #erro {
+            display: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1><i class="bi bi-shield-lock"></i> OdinControl</h1>
+            <p class="text-muted">Acesso ao sistema de monitoramento</p>
+        </div>
+        
+        <div id="erro" class="alert alert-danger"></div>
+        
+        <form id="form-login">
+            <div class="mb-3">
+                <label for="login" class="form-label">Usuário</label>
+                <input type="text" class="form-control" id="login" required>
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-login">Entrar</button>
+        </form>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</body>
+</html>
